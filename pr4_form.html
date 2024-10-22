@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            background-color: #FFB6C1; /* Light pink background color */
+            position: relative; /* Needed for positioning heart */
+            overflow: auto; /* Allow scrolling */
+            animation: sparkle 1s infinite; /* Add sparkle animation */
+        }
+        @keyframes sparkle {
+            0% { background-color: #FFB6C1; }
+            50% { background-color: #FF69B4; }
+            100% { background-color: #FFB6C1; }
+        }
+        .heart {
+            position: absolute;
+            background-color: red;
+            width: 20px;
+            height: 20px;
+            transform: rotate(45deg);
+            opacity: 0.3; /* Slightly transparent */
+        }
+        .heart:before,
+        .heart:after {
+            content: '';
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+        /* Generate hearts */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        .heart1 { top: 10%; left: 10%; animation: float 3s ease-in-out infinite; }
+        .heart2 { top: 30%; left: 20%; animation: float 4s ease-in-out infinite; }
+        .heart3 { top: 50%; left: 40%; animation: float 3.5s ease-in-out infinite; }
+        .heart4 { top: 70%; left: 60%; animation: float 4.5s ease-in-out infinite; }
+        .heart5 { top: 20%; left: 80%; animation: float 3.8s ease-in-out infinite; }
+
+        header {
+            background-color: #FF69B4; /* Hot pink background */
+            color: black; /* Black text */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Header shadow */
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em; /* Header size */
+        }
+        main {
+            padding: 30px;
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Form shadow */
+            overflow: auto; /* Allow inner scrolling */
+            max-height: 80vh; /* Max height for the main section */
+        }
+        h2 {
+            margin-bottom: 20px; /* Margin for form header */
+            color: black; /* Form header color */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: 600; /* Bold font for labels */
+            color: black; /* Label color */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #FF69B4; /* Pink border on focus */
+            outline: none; /* Removes default outline */
+        }
+        button {
+            background-color: #28A745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            width: 48%; /* Half-width button */
+            margin-top: 10px; /* Top margin for button */
+            display: inline-block; /* Inline for two buttons */
+            text-align: center; /* Center text */
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+            font-size: 14px;
+            color: black; /* Footer text color */
+        }
+        .faq {
+            margin-top: 30px; /* Space for FAQ */
+            border-top: 2px solid #FF69B4; /* Pink border */
+            padding-top: 20px; /* Padding for FAQ */
+        }
+        .faq h3 {
+            color: #FF69B4; /* Pink FAQ header */
+        }
+        .faq p {
+            color: black; /* Black FAQ text */
+        }
+        @media (max-width: 600px) {
+            main {
+                margin: 20px; /* Smaller margin for mobile */
+                padding: 20px; /* Smaller padding for mobile */
+            }
+            h1 {
+                font-size: 2em; /* Smaller header size on mobile */
+            }
+            button {
+                width: 100%; /* Full width buttons on mobile */
+                margin: 5px 0; /* Margin for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="heart heart1"></div>
+<div class="heart heart2"></div>
+<div class="heart heart3"></div>
+<div class="heart heart4"></div>
+<div class="heart heart5"></div>
+
+<header>
+    <h1>Feedback Form</h1>
+</header>
+
+<main>
+    <h2>We Value Your Feedback</h2>
+    <form id="feedback-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Your email">
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" placeholder="e.g. 1234567890">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required placeholder="Your city">
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="">Select your country</option>
+            <option value="ukraine">Ukraine</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="germany">Germany</option>
+            <!-- Add more countries as needed -->
+        </select>
+
+        <label for="message">Comments:</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Your comments"></textarea>
+
+        <label>Was this page helpful?</label>
+        <label><input type="radio" name="helpful" value="yes" required> Yes</label>
+        <label><input type="radio" name="helpful" value="no"> No</label>
+
+        <button type="submit">Submit</button>
+        <button type="button" onclick="document.getElementById('feedback-form').reset();">Clear</button> <!-- Clear button -->
+    </form>
+
+    <div class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <p><strong>Q: How do I submit the form?</strong></p>
+        <p>A: Fill out the required fields and click "Submit".</p>
+        <p><strong>Q: What should I do if I make a mistake?</strong></p>
+        <p>A: You can click "Clear" to reset the form.</p>
+        <p><strong>Q: Is my data secure?</strong></p>
+        <p>A: Yes, we value your privacy and data security.</p>
+    </div>
+</main>
+
+<footer>
+    <p>Author: Mudrova Daria, Group 529</p>
+</footer>
+
+</body>
+</html>
