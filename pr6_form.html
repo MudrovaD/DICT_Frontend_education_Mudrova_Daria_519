@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> <!-- Подключение шрифтов -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.transparenttextures.com/patterns/paper.png'),
+            linear-gradient(to right, #81c784, #4caf50); /* Градиентный фон с текстурой */
+            color: #333;
+            position: relative;
+            overflow: hidden;
+            height: 100vh; /* Высота экрана для прокрутки */
+            overflow-y: auto; /* Включение вертикальной прокрутки */
+        }
+        .hearts {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .heart {
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.2);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transform: rotate(45deg);
+            animation: float 5s ease-in-out infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            background-color: rgba(255, 0, 0, 0.2);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон */
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            margin: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #4caf50; /* Цвет заголовка */
+            font-family: 'Lobster', cursive; /* Использование красивого шрифта для заголовка */
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-family: 'Montserrat', sans-serif; /* Новый шрифт для текста */
+        }
+        nav {
+            background-color: #333; /* Цвет навигации */
+            padding: 10px 0;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s; /* Плавный переход цвета */
+        }
+        nav ul li a:hover {
+            color: #81c784; /* Цвет при наведении */
+        }
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: white; /* Цвет фона основного контента */
+            border-radius: 10px; /* Закругление углов */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Тень */
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc; /* Рамка вокруг секции */
+            border-radius: 5px; /* Закругление углов рамки */
+            background-color: #f9f9f9; /* Цвет фона секции */
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #333; /* Цвет подвала */
+            color: white;
+            border-radius: 0 0 10px 10px;
+            margin-top: 20px;
+        }
+        .icon {
+            width: 24px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #4caf50;
+            font-size: 1.5em;
+            transition: color 0.3s; /* Плавный переход цвета */
+        }
+        .social-icons a:hover {
+            color: #81c784; /* Цвет при наведении */
+        }
+        .testimonials {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .testimonial {
+            border-left: 4px solid #4caf50; /* Цвет рамки отзыва */
+            padding-left: 15px;
+            font-style: italic;
+        }
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="hearts">
+    <div class="heart" style="top: 10%; left: 20%; animation-delay: 0s;"></div>
+    <div class="heart" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+    <div class="heart" style="top: 50%; left: 80%; animation-delay: 2s;"></div>
+    <div class="heart" style="top: 70%; left: 30%; animation-delay: 3s;"></div>
+    <div class="heart" style="top: 90%; left: 60%; animation-delay: 4s;"></div>
+</div>
+<header>
+    <h1>Darja Mudrova</h1>
+    <p>Web Developer | Designer | Freelancer</p>
+</header>
+<nav>
+    <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<main>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a passionate web developer and designer with over 5 years of experience in creating engaging and user-friendly websites. I specialize in front-end development and UI/UX design, helping businesses grow and connect with their audiences.</p>
+        <p>My goal is to provide high-quality solutions and achieve the best results in every project. I am constantly learning and keeping up with the latest trends in web technologies.</p>
+    </section>
+    <section id="services">
+        <h2>Services</h2>
+        <ul>
+            <li>Website Development: Custom websites from scratch</li>
+            <li>UI/UX Design: Creating intuitive and attractive interfaces</li>
+            <li>Optimization: Improving the performance and SEO of existing websites</li>
+            <li>Consultation: Offering advice on web technologies and strategies</li>
+        </ul>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li><strong>Project 1:</strong> Developed a responsive website for a local business using HTML, CSS, and JavaScript.</li>
+            <li><strong>Project 2:</strong> Designed an intuitive UI for a mobile application.</li>
+            <li><strong>Project 3:</strong> Created an e-commerce website with integrated payment systems.</li>
+            <li><strong>Project 4:</strong> Built a blog with a custom theme and commenting functionality.</li>
+        </ul>
+    </section>
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonials">
+            <div class="testimonial">"Working with Darja was a true pleasure! She understands client needs and always offers great solutions." - Anna S.</div>
+            <div class="testimonial">"Professional approach and quality work. I am very satisfied with the result!" - Mikhail K.</div>
+            <div class="testimonial">"Darja really knows her stuff! I recommend her to all my acquaintances." - Sergey L.</div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>If you would like to discuss a project or collaboration, please feel free to reach out!</p>
+        <div class="social-icons">
+            <a href="#"><img src="https://image.flaticon.com/icons/svg/733/733558.svg" alt="LinkedIn" class="icon"></a>
+            <a href="#"><img src="https://image.flaticon.com/icons/svg/733/733561.svg" alt="GitHub" class="icon"></a>
+            <a href="#"><img src="https://image.flaticon.com/icons/svg/733/733547.svg" alt="Twitter" class="icon"></a>
+        </div>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2024 Darja Mudrova. All rights reserved.</p>
+</footer>
+</body>
+</html>
