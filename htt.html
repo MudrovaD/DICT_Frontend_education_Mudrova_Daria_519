@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ювелирные Изделия</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CSS КОД */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            background-color: #d4af37;
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .about, .catalog, .contact {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .catalog .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact form input, .contact form textarea, .contact form button {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact form button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact form button:hover {
+            background-color: #b1902d;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Элегантные Ювелирные Изделия</h1>
+    <p>Изысканная роскошь для каждого</p>
+    <nav>
+        <ul>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="about" class="about">
+    <h2>О нас</h2>
+    <p>Мы специализируемся на создании уникальных ювелирных изделий из высококачественных материалов. Каждый наш продукт проходит строгий контроль качества, чтобы вы могли насладиться лучшим.</p>
+    <p>Наша миссия – подчеркнуть вашу индивидуальность и стиль с помощью наших украшений.</p>
+</section>
+
+<section id="catalog" class="catalog">
+    <h2>Каталог</h2>
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="https://example.com/necklace.jpg" alt="Колье">
+            <h3>Изысканное колье</h3>
+            <p>Золотое колье с бриллиантами, идеально подходящее для вечерних мероприятий.</p>
+            <button onclick="showDetails('Изысканное колье', 'Золотое колье с бриллиантами, идеально подходящее для вечерних мероприятий.')">Подробнее</button>
+        </div>
+        <div class="product-card">
+            <img src="https://example.com/ring.jpg" alt="Кольцо">
+            <h3>Обручальное кольцо</h3>
+            <p>Белое золото с утонченным дизайном для особых моментов.</p>
+            <button onclick="showDetails('Обручальное кольцо', 'Белое золото с утонченным дизайном для особых моментов.')">Подробнее</button>
+        </div>
+        <div class="product-card">
+            <img src="https://example.com/earrings.jpg" alt="Серьги">
+            <h3>Серьги с сапфирами</h3>
+            <p>Прекрасный выбор для тех, кто ценит классику и роскошь.</p>
+            <button onclick="showDetails('Серьги с сапфирами', 'Прекрасный выбор для тех, кто ценит классику и роскошь.')">Подробнее</button>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Контакты</h2>
+    <p>Свяжитесь с нами для заказа или получения дополнительной информации.</p>
+    <form id="contactForm">
+        <label for="name">Ваше имя:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Ваш Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Сообщение:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Элегантные Ювелирные Изделия. Все права защищены.</p>
+</footer>
+
+<script>
+    // JavaScript код
+    function showDetails(title, description) {
+        alert(`Название: ${title}\nОписание: ${description}`);
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        alert(`Спасибо за ваше сообщение, ${name}!\nМы свяжемся с вами по адресу: ${email}`);
+        this.reset();
+    });
+</script>
+</body>
+</html>
